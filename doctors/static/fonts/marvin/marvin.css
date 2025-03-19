@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Marvin Visions Variable';
+  src: url(MarvinVisionsTrial-Variable.woff2) format('woff2'),
+    url(MarvinVisionsTrial-Variable.woff) format('woff'),
+    url(MarvinVisionsTrial-Variable.ttf) format('truetype');
+  font-weight: 20 170;
+}

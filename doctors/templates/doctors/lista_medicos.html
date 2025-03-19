@@ -4,18 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Encontre seu especialista em cannabis medicinal</title>
-    <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- Caso queira usar ícones do FontAwesome (opcional) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-..."
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- Estilos adicionais, se necessário -->
+    <link rel="stylesheet" href="{% static 'fonts/marvin/marvin.css' %}" />
     <style>
       body {
         font-family: sans-serif;
@@ -23,76 +13,30 @@
     </style>
   </head>
   <body class="overflow-x-hidden">
+    
     <!-- NAVBAR -->
-
-    {% include 'doctors/navbar.html' %}
+    {% include 'doctors/components/navbar.html' %}
 
     <!-- MAIN CONTENT -->
     <main class="mt-24">
       <section class="mb-16 xl:mx-12 xl:mb-32" id="medics_sect">
         <div class="max-w-screen-xl mx-auto pt-7 xl:pt-16 xl:px-6">
-          <div class="mb-6 text-center">
+          <div class="mb-6 text-center pt-4">
             <h2
-              class="mb-4 text-2xl font-bold md:text-3xl lg:text-5xl text-theme_color2-400"
+              class="mb-4 text-3xl font-bold md:text-3xl lg:text-5xl text-[#758555]"
               style="font-family: Marvin Visions Variable"
             >
               Encontre seu especialista em cannabis medicinal
             </h2>
-            <p class="mb-7 font-semibold md:text-2xl">
-              Busque por especialidade ou pelo nome do profissional da saúde.
+            </p>
+            <p class="mb-7 font-semiBold text-[22px]">
+              Busque por especialidade, pelo nome do profissional da saúde ou
+              utilize umas das palavras-chave abaixo.
             </p>
 
             <!-- Filtro de especialidades (exemplo simplificado) -->
-            <form action="{% url 'lista_medicos' %}" method="get">
-              <div class="flex flex-wrap justify-center gap-4 mb-6">
-                <div>
-                  <input
-                    type="radio"
-                    name="specialty"
-                    id="specialty-all"
-                    value="all"
-                    class="hidden peer"
-                  />
-                  <label
-                    for="specialty-all"
-                    class="px-6 py-1 text-xs font-bold uppercase bg-theme_color2-200 rounded-lg cursor-pointer peer-checked:bg-theme_color2-300 hover:bg-theme_color2-300"
-                  >
-                    TODAS
-                  </label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    name="specialty"
-                    id="specialty-familia"
-                    value="familia"
-                    class="hidden peer"
-                  />
-                  <label
-                    for="specialty-familia"
-                    class="px-6 py-1 text-xs font-bold uppercase bg-theme_color2-200 rounded-lg cursor-pointer peer-checked:bg-theme_color2-300 hover:bg-theme_color2-300"
-                  >
-                    FAMÍLIA
-                  </label>
-                </div>
-                <!-- Adicione quantas quiser -->
-              </div>
-
-              <!-- Campo de busca por nome -->
-              <div class="relative mb-4 max-w-xl mx-auto">
-                <div
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                >
-                  <i class="text-gray-500 fa fa-search"></i>
-                </div>
-                <input
-                  type="text"
-                  name="medico"
-                  class="block w-full text-sm text-gray-900 bg-gray-100 border-0 rounded-full shadow-lg py-3 pl-10 pr-4 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Busque pelo nome do médico"
-                />
-              </div>
-            </form>
+            {% include 'doctors/components/specialty_filter.html' %}
+            
 
             <div class="mb-2 font-bold text-start ms-4 text-theme_color2-300">
               Total de {{ total_prescritores }} prescritores
@@ -167,9 +111,7 @@
       </div>
     </footer>
 
-    <!-- Scripts JS opcionais -->
     <script>
-      // Exemplo: remover/colocar opacidade no nav ao scrollar
       window.addEventListener('scroll', function () {
         const navbar = document.querySelector('nav');
         if (window.scrollY > 0) {
