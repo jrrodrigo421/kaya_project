@@ -1,0 +1,15 @@
+# Ambiente virtual
+env/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Banco de dados
+db.sqlite3
+
+# Outros arquivos temporários
+*.log
+*.swp
+*.DS_Store
