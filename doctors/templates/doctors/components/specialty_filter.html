@@ -228,3 +228,63 @@
   {% comment %} Total de {{ total_prescritores }} prescritores {% endcomment %}
   Total de 22 prescritores
 </div>
+
+<!-- Container principal -->
+<div class="flex items-center gap-6 mt-4 p-4">
+  <!-- Título e ícone -->
+  <div class="flex items-center gap-2 text-xl font-semibold text-gray-600">
+    <span>Filtros</span>
+    <i class="fa fa-filter"></i>
+  </div>
+</div>
+
+<!-- Botões de filtro -->
+<div class="flex gap-3">
+  <!-- MENOR VALOR -->
+  <div>
+    <input
+      type="radio"
+      name="filter"
+      id="filter-lowest-price"
+      class="hidden peer"
+    />
+    <label
+      for="filter-lowest-price"
+      class="px-4 py-1 text-xs font-semibold text-gray-600 bg-gray-200 rounded-full cursor-pointer peer-checked:bg-gray-400 peer-checked:text-white"
+    >
+      MENOR VALOR
+    </label>
+  </div>
+
+  <!-- MAIOR VALOR -->
+  <div>
+    <input
+      type="radio"
+      name="filter"
+      id="filter-highest-price"
+      class="hidden peer"
+    />
+    <label
+      for="filter-highest-price"
+      class="px-4 py-1 text-xs font-semibold text-gray-600 bg-gray-200 rounded-full cursor-pointer peer-checked:bg-gray-400 peer-checked:text-white"
+    >
+      MAIOR VALOR
+    </label>
+  </div>
+
+  <!-- VISUALIZAÇÕES -->
+  <div>
+    <input
+      type="radio"
+      name="filter"
+      id="filter-most-viewed"
+      class="hidden peer"
+    />
+    <label
+      for="filter-most-viewed"
+      class="px-4 py-1 text-xs font-semibold text-gray-600 bg-gray-200 rounded-full cursor-pointer peer-checked:bg-gray-400 peer-checked:text-white"
+    >
+      VISUALIZAÇÕES
+    </label>
+  </div>
+</div>
