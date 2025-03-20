@@ -207,3 +207,24 @@
     </label>
   </div>
 </div>
+
+<!-- Componente de busca estático seguindo o padrão de cantos arredondados e cor clara -->
+<div
+  class="relative max-w-6xl mx-auto shadow-md rounded-3xl bg-[#f2f2f2] my-4 py-2"
+>
+  <!-- Ícone da lupa -->
+  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+    <i class="fa fa-search"></i>
+  </span>
+  <!-- Campo de busca -->
+  <input
+    type="text"
+    placeholder=""
+    class="w-full py-3 pl-10 pr-4 rounded-3xl bg-[#f2f2f2] focus:outline-none text-gray-700"
+  />
+</div>
+
+<div class="mb-2 font-bold text-start ms-4 text-[#a9cc81]">
+  {% comment %} Total de {{ total_prescritores }} prescritores {% endcomment %}
+  Total de 22 prescritores
+</div>

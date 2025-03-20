@@ -6,6 +6,13 @@
     <title>Encontre seu especialista em cannabis medicinal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="{% static 'fonts/marvin/marvin.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       body {
         font-family: sans-serif;
@@ -37,10 +44,6 @@
             <!-- Filtro de especialidades (exemplo simplificado) -->
             {% include 'doctors/components/specialty_filter.html' %}
             
-
-            <div class="mb-2 font-bold text-start ms-4 text-theme_color2-300">
-              Total de {{ total_prescritores }} prescritores
-            </div>
           </div>
 
           <!-- Grid de médicos -->
