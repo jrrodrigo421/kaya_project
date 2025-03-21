@@ -8,4 +8,5 @@ urlpatterns = [
 ]
 urlpatterns += [
     path('', lambda request: HttpResponseRedirect('/medicos/')),
+    
 ]

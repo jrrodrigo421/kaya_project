@@ -1,34 +1,205 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Perfil - {{ doctor.name }}</title>
-    <!-- Tailwind via CDN -->
-    <!-- <link href="https://cdn.tailwindcss.com" rel="stylesheet" /> -->
+    <title>{{ doctor.name }} - {{ doctor.specialty }}</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'images/favicon.png' %}"
+    />
+    <!-- Tailwind CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Fonte Marvin (se desejar) -->
+    <link rel="stylesheet" href="{% static 'fonts/marvin/marvin.css' %}" />
+    <!-- Font Awesome (opcional) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: sans-serif; /* ou "din-2014, sans-serif" se tiver configurado */
+      }
+    </style>
   </head>
-  <body class="bg-gray-100 min-h-screen p-4">
-    <div class="container mx-auto bg-white p-6 rounded shadow">
-      <div class="flex flex-col md:flex-row items-center">
-        <img
-          src="{{ doctor.photo }}"
-          alt="{{ doctor.name }}"
-          class="w-40 h-40 object-cover rounded-full"
-        />
-        <div class="md:ml-6 mt-4 md:mt-0">
-          <h1 class="text-3xl font-bold">{{ doctor.name }}</h1>
-          <p class="text-gray-600">{{ doctor.specialty }}</p>
+  <body class="overflow-x-hidden">
+    <!-- NAVBAR -->
+    {% include 'doctors/components/navbar.html' %}
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-screen-xl mx-auto mt-24 px-4 2xl:px-0">
+      <!-- Fundo / Banner -->
+      <div class="relative">
+        <div class="absolute z-0 w-full h-48 bg-gray-200 rounded-t-3xl"></div>
+        <!-- Sessão principal -->
+        <div class="z-10 pt-24 relative">
+          <div class="flex gap-8 px-6 md:px-12">
+            <!-- Foto do médico -->
+            <div
+              class="w-52 h-52 rounded-full overflow-hidden ring-2 ring-white"
+            >
+              <img
+                src="{{ doctor.photo }}"
+                alt="{{ doctor.name }}"
+                class="object-cover w-full h-full"
+              />
+            </div>
+            <!-- Nome / Especialidade / Local -->
+            <div class="mt-16">
+              <h1 class="mb-3 text-4xl font-bold">Dr. {{ doctor.name }}</h1>
+              <div class="mb-3 text-gray-500">
+                <h2 class="text-2xl font-bold">{{ doctor.specialty }}</h2>
+                <p>{{ doctor.crm }}</p>
+              </div>
+              <div
+                class="flex items-center px-3 py-1 mb-4 text-sm font-bold bg-gray-200 rounded-lg w-max"
+              >
+                <i class="mr-2 text-gray-500 fa fa-map-marker-alt"></i>
+                <p>{{ doctor.city }}, {{ doctor.uf }}</p>
+              </div>
+              <!-- Redes sociais (opcional) -->
+              <div class="flex gap-4">
+                {% if doctor.instagram %}
+                <a
+                  href="{{ doctor.instagram }}"
+                  target="_blank"
+                  class="text-gray-500 hover:text-gray-700"
+                >
+                  <i class="fab fa-instagram fa-2x"></i>
+                </a>
+                {% endif %} {% if doctor.facebook %}
+                <a
+                  href="{{ doctor.facebook }}"
+                  target="_blank"
+                  class="text-gray-500 hover:text-gray-700"
+                >
+                  <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                {% endif %}
+              </div>
+            </div>
+            <!-- Avaliações / Visualizações (opcional) -->
+            <div class="flex text-sm text-gray-500 mt-16 ms-auto gap-4">
+              <div class="flex items-center">
+                <span class="text-yellow-400">
+                  <!-- Exemplo de 5 estrelas fixas -->
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <span class="hidden ml-2 text-gray-500">
+                  ({{ doctor.reviews_count }} avaliações)
+                </span>
+              </div>
+              <div class="flex items-center">
+                <i class="fa fa-eye ml-4"></i>
+                <span class="ml-2">{{ doctor.views }} visualizações</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="mt-8">
-        <h2 class="text-2xl font-semibold mb-4">Sobre o Médico</h2>
-        <p>{{ doctor.description }}</p>
+      <!-- Conteúdo principal -->
+      <div class="flex flex-wrap mt-8">
+        <!-- Coluna 1 -->
+        <div class="w-full md:w-1/2 md:pl-12">
+          <!-- Descrição -->
+          <div class="mb-8">
+            <h3 class="mb-3 text-3xl font-bold">Descrição</h3>
+            <p class="text-gray-600 whitespace-pre-line">
+              {{ doctor.description }}
+            </p>
+          </div>
+          <!-- Informações gerais -->
+          <div class="mb-8">
+            <h3 class="mb-3 text-3xl font-bold">Informações gerais</h3>
+            <ul class="space-y-4 text-gray-600">
+              <li>
+                <h4 class="text-xl font-bold">Patologias</h4>
+                <p>{{ doctor.patologias }}</p>
+              </li>
+              <li>
+                <h4 class="text-xl font-bold">Atendimento</h4>
+                <p>{{ doctor.atendimento }}</p>
+              </li>
+              <li>
+                <h4 class="text-xl font-bold">Aceita Convênio</h4>
+                <p>{{ doctor.convenio }}</p>
+              </li>
+              <li>
+                <h4 class="text-xl font-bold">Retorno e Acompanhamento</h4>
+                <p>{{ doctor.retorno_info }}</p>
+              </li>
+              <li>
+                <h4 class="text-xl font-bold">
+                  Experiência com prescrição de produtos à base de cannabis
+                </h4>
+                <p>{{ doctor.experiencia }}</p>
+              </li>
+            </ul>
+          </div>
+          <!-- Formação -->
+          <div class="mb-8">
+            <h3 class="mb-3 text-3xl font-bold">Formação</h3>
+            <ul class="space-y-4 text-gray-600">
+              {% for formacao in doctor.formacao %}
+              <li>
+                <h4 class="text-xl font-bold">{{ formacao.instituicao }}</h4>
+                <p>{{ formacao.descricao }}</p>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <!-- Vídeo (opcional) -->
+          {% if doctor.video_url %}
+          <div class="my-10">
+            <iframe
+              width="560"
+              height="315"
+              src="{{ doctor.video_url }}"
+              title="Apresentação do médico"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-64"
+            ></iframe>
+          </div>
+          {% endif %}
+        </div>
+        <!-- Coluna 2 (exemplo: Agenda, Calendário etc.) -->
+        <div class="w-full md:w-1/2 md:pr-12">
+          <!-- Se quiser colocar a agenda do médico, etc. -->
+          <div class="bg-gray-100 p-6 rounded-xl">
+            <h3 class="mb-4 text-2xl font-bold">Agenda</h3>
+            <p class="text-gray-600">Em breve...</p>
+          </div>
+        </div>
       </div>
+    </main>
 
-      <p class="mt-4 text-sm text-gray-500">
-        Resolução principal: {{ resolution }}
-      </p>
-    </div>
+    <!-- FOOTER -->
+    {% include 'doctors/components/footer.html' %}
+
+    <!-- Scripts JS (opcional) -->
+    <script>
+      // Exemplo de scroll effect no nav, etc.
+      window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('nav');
+        if (window.scrollY > 0) {
+          navbar.classList.add('opacity-80');
+        } else {
+          navbar.classList.remove('opacity-80');
+        }
+      });
+    </script>
   </body>
 </html>
