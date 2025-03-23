@@ -1,0 +1,90 @@
+<!-- navbar_mobile.html -->
+<nav class="md:hidden bg-[#232323] text-white p-4 rounded-b-3xl">
+    <!-- Topo com logo + ícone hambúrguer -->
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#">
+        <img
+          src="https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/staticfiles/images/rebranding/kaya%20doc%20branco.png"
+          alt="Kaya Doc"
+          class="h-10"
+        />
+      </a>
+
+      <!-- Botão hamburguer -->
+      <button
+        id="menuBtn"
+        class="p-2 text-gray-300 hover:text-[#e2f2b2]"
+        onclick="toggleMobileMenu()"
+      >
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Conteúdo expandido (hidden por padrão) -->
+    <div
+      id="mobileMenu"
+      class="hidden mt-4 rounded-xl border border-[#3c3c3c] p-4"
+    >
+      <!-- “Select” Funcionalidades -->
+      <div class="mb-4">
+        <label class="block text-sm font-bold mb-1">Funcionalidades</label>
+        <select
+          class="w-full bg-[#758555] text-white px-4 py-2 rounded focus:outline-none"
+        >
+          <option>Selecione</option>
+          <option>Descubra Novos Produtos</option>
+          <option>Biblioteca de Estudos</option>
+          <option>Webinars</option>
+          <option>Copiloto</option>
+          <option>Benefícios e Parcerias</option>
+          <option>Prontuário</option>
+          <option>Anamnese</option>
+          <option>Agenda</option>
+          <option>Perfil Público</option>
+        </select>
+      </div>
+
+      <!-- “Select” Paciente -->
+      <div class="mb-4">
+        <label class="block text-sm font-bold mb-1">Paciente</label>
+        <select
+          class="w-full bg-[#758555] text-white px-4 py-2 rounded focus:outline-none"
+        >
+          <option>Selecione</option>
+          <option>Médicos Prescritores</option>
+          <option>Benefícios da Cannabis</option>
+          <option>Glossário Canábico</option>
+          <option>Blog da Saúde</option>
+          <option>Condições Médicas</option>
+        </select>
+      </div>
+
+      <!-- Botões -->
+      <div class="flex flex-col gap-3 mt-6">
+        <!-- Teste grátis -->
+        <a
+          href="#"
+          class="block text-center px-4 py-2 rounded-3xl bg-[#e2f2b2] text-[#252625] font-semibold hover:bg-[#252625] hover:text-[#e2f2b2]"
+        >
+          Teste grátis
+        </a>
+
+        <!-- Login -->
+        <a
+          href="#"
+          class="block text-center px-4 py-2 rounded-3xl border border-[#e2f2b2] text-white hover:bg-[#e2f2b2] hover:text-[#252625]"
+        >
+          Login
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('hidden');
+    }
+  </script>
+</nav>

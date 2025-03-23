@@ -5,6 +5,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>{{ doctor.name }} - {{ doctor.specialty }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!-- Favicon -->
     <link
       rel="shortcut icon"
@@ -25,14 +27,13 @@
     />
     <style>
       body {
-        font-family: sans-serif; /* ou "din-2014, sans-serif" se tiver configurado */
+        font-family: sans-serif;
       }
     </style>
   </head>
   <body class="overflow-x-hidden">
     <!-- NAVBAR -->
     {% include 'doctors/components/navbar.html' %}
-
     <!-- MAIN CONTENT -->
     <main class="max-w-screen-xl mx-auto mt-24 px-4 2xl:px-0">
       <!-- Fundo / Banner -->
