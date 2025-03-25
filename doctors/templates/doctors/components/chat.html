@@ -1,18 +1,14 @@
 {% load static %}
 
-<!-- Componente de Chat (coloque no seu base.html ou footer.html, por exemplo) -->
 <div
   id="chatWidget"
   class="fixed bottom-6 right-6 z-50 flex flex-col items-start"
 >
-  <!-- JANELA DE CHAT (inicialmente escondida) -->
   <div
     id="chatBox"
     class="hidden flex flex-col w-80 h-96 bg-white rounded-xl shadow-xl overflow-hidden mb-3"
   >
-    <!-- Cabeçalho -->
     <div class="flex items-center p-3 bg-[#f2f2f2]">
-      <!-- Logo (opcional) -->
       <img
         src="{% static 'images/logo-chat.png' %}"
         alt="Kaya Doc Logo"
@@ -25,7 +21,6 @@
         </p>
       </div>
     </div>
-    <!-- Conteúdo -->
     <div class="flex-1 p-3 text-sm text-gray-700 overflow-auto">
       <p>Estamos ausentes no momento</p>
       <p class="mt-1">Estaremos de volta on-line na Segunda-Feira</p>
@@ -33,24 +28,20 @@
         >Iniciar Conversa &rarr;</a
       >
     </div>
-    <!-- Rodapé -->
     <div class="p-2 text-xs text-gray-400 bg-[#f2f2f2] text-center">
       Desenvolvido por Chatwoot
     </div>
   </div>
 
-  <!-- BOTÃO FLUTUANTE -->
   <button
     id="chatToggleBtn"
     class="bg-[#e4b4cc] w-12 h-12 rounded-full text-white flex items-center justify-center shadow-lg"
   >
-    <!-- Ícone (pode usar Font Awesome ou outro) -->
     <i class="fa fa-comments text-xl"></i>
   </button>
 </div>
 
 <script>
-  // Script simples para abrir/fechar o chat
   const chatBox = document.getElementById('chatBox');
   const chatToggleBtn = document.getElementById('chatToggleBtn');
   let isOpen = false;

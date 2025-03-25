@@ -24,12 +24,10 @@
   </head>
   <body class="overflow-x-hidden">
     
-    <!-- NAVBAR -->
     {% include 'doctors/components/navbar.html' %}
     
     {% include 'doctors/components/navbarmobile.html' %}
 
-    <!-- MAIN CONTENT -->
     <main class="mt-24">
       <section class="mb-16 xl:mx-12 xl:mb-32" id="medics_sect">
         <div class="max-w-screen-xl mx-auto pt-7 xl:pt-16 xl:px-6">
@@ -46,12 +44,10 @@
               utilize umas das palavras-chave abaixo.
             </p>
 
-            <!-- Filtro de especialidades (exemplo simplificado) -->
             {% include 'doctors/components/specialty_filter.html' %}
             
           </div>
 
-          <!-- Grid de médicos -->
           <div
             class="grid grid-cols-1 gap-6 pb-6 mx-6 sm:grid-cols-2 md:grid-cols-3 xl:gap-4 xl:max-w-screen-xl xl:mx-auto"
             id="medic_grid"
@@ -61,7 +57,6 @@
               class="flex flex-col items-center justify-between w-full mx-auto text-center rounded-lg bg-gray-100/50"
             >
               <div class="flex flex-col w-full">
-                <!-- Imagem do médico -->
                 <a class="w-full mb-4 cursor-pointer" href="#">
                   <div class="w-full text-center">
                     <div class=" h-96 mx-auto">
@@ -73,7 +68,6 @@
                     </div>
                   </div>
                 </a>
-                <!-- Nome e especialidade -->
                 <div class="mb-6 text-center px-2">
                   <h3 class="w-full text-lg font-bold whitespace-nowrap">
                     {{ doctor.name }}
@@ -84,7 +78,6 @@
                 </div>
               </div>
 
-              <!-- Preço / duração / botões -->
               <div class="flex flex-col w-full gap-3 mt-auto text-sm font-bold">
                 <div class="flex gap-2 mt-auto text-base justify-center">
                   <div>R$ {{ doctor.value }}</div>
