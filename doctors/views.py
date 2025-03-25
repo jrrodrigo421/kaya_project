@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from decimal import Decimal
 
 DOCTORS = [
     {
@@ -396,12 +397,105 @@ DOCTORS = [
     },
 ]
 
+# def lista_medicos(request):
+#     context = {
+#         'doctors': DOCTORS,
+#         'resolution': '1920x1080',
+#     }
+#     return render(request, 'doctors/lista_medicos.html', context)
+
+# def lista_medicos(request):
+#     specialty_filter = request.GET.get('specialty')
+#     sort_filter = request.GET.get('filter')
+#     search_query = request.GET.get('q', '').strip().lower()
+
+#     doctors_filtered = DOCTORS.copy()
+
+#     # --- FILTRAR POR ESPECIALIDADE ---
+#     if specialty_filter and specialty_filter.lower() != 'all':
+#         doctors_filtered = [
+#             d for d in doctors_filtered
+#             if d['specialty'].strip().lower() == specialty_filter.strip().lower()
+#         ]
+
+#     # --- FILTRAR POR BUSCA DE TEXTO ---
+#     if search_query:
+#         doctors_filtered = [
+#             d for d in doctors_filtered
+#             if search_query in d['name'].lower()
+#         ]
+
+#     # --- TRANSFORMA VALOR PARA DECIMAL ---
+#     for doctor in doctors_filtered:
+#         try:
+#             doctor['valor_num'] = Decimal(doctor['value'].replace('.', '').replace(',', '.'))
+#         except:
+#             doctor['valor_num'] = Decimal('0')
+
+#     # --- ORDENAR ---
+#     if sort_filter == 'lowest-price':
+#         doctors_filtered.sort(key=lambda d: d['valor_num'])
+#     elif sort_filter == 'highest-price':
+#         doctors_filtered.sort(key=lambda d: d['valor_num'], reverse=True)
+#     elif sort_filter == 'most-viewed':
+#         doctors_filtered.sort(key=lambda d: d['views'], reverse=True)
+
+#     context = {
+#         'doctors': doctors_filtered,
+#         'total_prescritores': len(doctors_filtered),
+#         'resolution': '1920x1080',
+#     }
+#     return render(request, 'doctors/lista_medicos.html', context)
+
+
+from django.shortcuts import render
+from decimal import Decimal
+
 def lista_medicos(request):
+    specialty_filter = request.GET.get('specialty')
+    sort_filter = request.GET.get('filter')
+    search_query = request.GET.get('q', '').strip().lower()
+
+    doctors_filtered = DOCTORS.copy()
+
+    # --- FILTRAR POR ESPECIALIDADE ---
+    if specialty_filter and specialty_filter.lower() != 'all':
+        doctors_filtered = [
+            d for d in doctors_filtered
+            if d['specialty'].strip().lower() == specialty_filter.strip().lower()
+        ]
+
+    # --- FILTRAR POR BUSCA (nome do médico) ---
+    if search_query:
+        doctors_filtered = [
+            d for d in doctors_filtered
+            if search_query in d['name'].lower()
+        ]
+
+    # --- CONVERTER VALORES PARA DECIMAL (para ordenar corretamente) ---
+    for doctor in doctors_filtered:
+        try:
+            doctor['valor_num'] = Decimal(doctor['value'].replace('.', '').replace(',', '.'))
+        except:
+            doctor['valor_num'] = Decimal('0')
+
+    # --- ORDENAR ---
+    if sort_filter == 'lowest-price':
+        doctors_filtered.sort(key=lambda d: d['valor_num'])
+    elif sort_filter == 'highest-price':
+        doctors_filtered.sort(key=lambda d: d['valor_num'], reverse=True)
+    elif sort_filter == 'most-viewed':
+        doctors_filtered.sort(key=lambda d: d['views'], reverse=True)
+
     context = {
-        'doctors': DOCTORS,
+        'doctors': doctors_filtered,
+        'total_prescritores': len(doctors_filtered),
         'resolution': '1920x1080',
     }
     return render(request, 'doctors/lista_medicos.html', context)
+
+
+
 
 
 def perfil_medico(request, medico_id):
