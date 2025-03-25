@@ -61,5 +61,6 @@ Abra seu navegador e acesse:
 Projeto desenvolvido para resolução desktop & Mobile
 
 ## 📧 Contato
-[Rodrigo Lopes - rjr89000@gmail.com]
+```bash
+Rodrigo Lopes - rodrigoplopesjr@gmail.com
 ```
