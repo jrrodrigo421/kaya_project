@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- Componente de Chat (coloque no seu base.html ou footer.html, por exemplo) -->
 <div
   id="chatWidget"
@@ -12,7 +14,7 @@
     <div class="flex items-center p-3 bg-[#f2f2f2]">
       <!-- Logo (opcional) -->
       <img
-        src="https://saude-kayamind-minio.aqrour.easypanel.host/chatwoot/42retxhwf6crxxopvrjs8hyt3wk3?response-content-disposition=inline%3B%20filename%3D%22KAYA_Icone_RGB_branco-e1723736295156.png%22%3B%20filename%2A%3DUTF-8%27%27KAYA_Icone_RGB_branco-e1723736295156.png&response-content-type=image%2Fpng&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=X6E4vxFxv8KMQBEFa6cL%2F20250323%2Fbrazil%2Fs3%2Faws4_request&X-Amz-Date=20250323T121130Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=148e1398f820595e60849d6b8a0702d39e987565fbced256f1dc1cb07fff9739"
+        src="{% static 'images/logo-chat.png' %}"
         alt="Kaya Doc Logo"
         class="h-8 w-8 mr-2"
       />
