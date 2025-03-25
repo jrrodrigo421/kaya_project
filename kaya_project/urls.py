@@ -7,6 +7,6 @@ urlpatterns = [
     path('medicos/', include('doctors.urls')),
 ]
 urlpatterns += [
-    path('', lambda request: HttpResponseRedirect('/medicos/')),
+    path('', lambda request: HttpResponseRedirect('/medicos')),
     
 ]
