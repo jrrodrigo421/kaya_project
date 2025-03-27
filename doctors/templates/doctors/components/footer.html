@@ -1,3 +1,5 @@
+{% load static %}
+
 <footer
   class="text-white bg-[#232323] flex flex-wrap mt-8 rounded-3xl pt-10 pb-20 px-6 md:px-10 gap-8"
 >
@@ -5,31 +7,25 @@
     <div>
       <img
         class="w-1/2 mx-auto lg:w-full"
-        src="https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/staticfiles/images/rebranding/kaya%20slogan%20branco.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=tEE1iyojY34tOfrnfIPQ%2F20250320%2Fbrazil%2Fs3%2Faws4_request&X-Amz-Date=20250320T154404Z&X-Amz-Expires=588000&X-Amz-SignedHeaders=host&X-Amz-Signature=9d45c20bbd5c02e5593c14d56225c60d0a0ecaa85ae846a8044da105ce555847"
+        src="{% static 'images/kaya-slogan-branco.png' %}"
         alt="Kaya slogan Dados, Conhecimento, Impacto"
       />
     </div>
     <div class="grid grid-cols-3 gap-4">
       <div>
         <a href="#">
-          <img
-            src="https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/staticfiles/images/rebranding/kaya%20doc%20branco.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=tEE1iyojY34tOfrnfIPQ%2F20250320%2Fbrazil%2Fs3%2Faws4_request&X-Amz-Date=20250320T154404Z&X-Amz-Expires=588000&X-Amz-SignedHeaders=host&X-Amz-Signature=9d40c731b524f0146ac608ff85ab0c60e3d8d9c5324a34e9a19852a519198b53"
-            alt="Kaya Doc"
-          />
+          <img src="{% static 'images/kaya-doc-branco.png' %}" alt="Kaya Doc" />
+        </a>
+      </div>
+      <div>
+        <a href="#">
+          <img src="{% static 'images/kaya-biz-branco.png' %}" alt="Kaya Biz" />
         </a>
       </div>
       <div>
         <a href="#">
           <img
-            src="https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/staticfiles/images/rebranding/kaya%20biz%20branco.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=tEE1iyojY34tOfrnfIPQ%2F20250320%2Fbrazil%2Fs3%2Faws4_request&X-Amz-Date=20250320T154404Z&X-Amz-Expires=588000&X-Amz-SignedHeaders=host&X-Amz-Signature=1a59b7211a528224b9b80125ddc2ce41b12ebead04a13fce5027288aa968bf07"
-            alt="Kaya Biz"
-          />
-        </a>
-      </div>
-      <div>
-        <a href="#">
-          <img
-            src="https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/staticfiles/images/rebranding/kaya%20mind%20branco.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=tEE1iyojY34tOfrnfIPQ%2F20250320%2Fbrazil%2Fs3%2Faws4_request&X-Amz-Date=20250320T154404Z&X-Amz-Expires=588000&X-Amz-SignedHeaders=host&X-Amz-Signature=1ce96b7c7433494a59f907fd58e6e36b2c0d442bb2f0d772f25f79084ef5a52b"
+            src="{% static 'images/kaya-mind-branco.png' %}"
             alt="Kaya Mind"
           />
         </a>
@@ -178,11 +174,7 @@
     </div>
   </div>
   <div>
-    <img
-      class="flex w-5"
-      src="https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/staticfiles/images/rebranding/k.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=tEE1iyojY34tOfrnfIPQ%2F20250320%2Fbrazil%2Fs3%2Faws4_request&X-Amz-Date=20250320T154404Z&X-Amz-Expires=588000&X-Amz-SignedHeaders=host&X-Amz-Signature=92f41297b5ded5464b917884eb70c01467e671abec4928c328a42564a43f6440"
-      alt="Logo K"
-    />
+    <img class="flex w-5" src="{% static 'images/k.png' %}" alt="Logo K" />
   </div>
 </div>
 <script>

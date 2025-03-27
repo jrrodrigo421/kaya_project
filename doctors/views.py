@@ -371,30 +371,7 @@ DOCTORS = [
         'video_url': '',
         'instagram': '',
         'facebook': '',
-    },
-    {
-        'id': 77,
-        'name': 'Haslling Gomes Rocha',
-        'specialty': 'Clínico Geral',
-        'photo': 'https://saude-kayamind-minio.aqrour.easypanel.host/kayadoc/media/medic_photos/result_img_2024_09_10_08_27_17.jpg?...',
-        'description': 'Clínico Geral com vasta experiência.',
-        'value': '350,00',
-        'consultation_duration': '30 min',
-        'crm': 'CRM 151515',
-        'city': 'Cidade U',
-        'uf': 'UU',
-        'reviews_count': 0,
-        'views': 0,
-        'patologias': 'Não especificado',
-        'atendimento': 'Não especificado',
-        'convenio': 'Não',
-        'retorno_info': 'Não especificado',
-        'experiencia': 'Não especificado',
-        'formacao': [],
-        'video_url': '',
-        'instagram': '',
-        'facebook': '',
-    },
+    }
 ]
 
 
